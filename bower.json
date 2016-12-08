@@ -4,7 +4,7 @@
   "main": "cuba-form.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.7.0",
-    "cuba-app": "master",
+    "cuba-app": "0.0.2",
     "iron-form": "PolymerElements/iron-form#^1.1.4"
   },
   "devDependencies": {
