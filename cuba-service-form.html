@@ -1,19 +1,18 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-form/iron-form.html">
 <link rel="import" href="cuba-form-behavior.html">
 
 <!--
-`cuba-form-entity`
+`cuba-service-form`
 -->
 
-<dom-module id="cuba-form-entity">
+<dom-module id="cuba-service-form">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <form is="iron-form" id="entityForm">
+    <form id="form">
       <content></content>
     </form>
   </template>
@@ -21,35 +20,38 @@
   <script>
     Polymer({
 
-      is: 'cuba-form-entity',
+      is: 'cuba-service-form',
 
       behaviors: [CubaFormBehavior],
 
       properties: {
-        entityName: {
-          type: String
+        serviceName: String,
+        method: String,
+        params: {
+          type: Object
         },
-        entity: {
+        result: {
           type: Object,
-          notify: true
+          notify: true,
+          readOnly: true
         }
       },
 
       ready: function() {
-        this.$.entityForm.addEventListener('iron-form-presubmit', function(event) {
+        this.$.form.addEventListener('submit', function(event) {
           event.preventDefault();
           this.submit();
           return false;
         }.bind(this));
       },
 
+      /**
+       * Send data to server.
+       */
       submit: function() {
-        if (!this.$.entityForm.validate()) {
-          return;
-        }
         this._clearErrors();
-        return cubaApp.commitEntity(this.entityName, this.entity).then(function(resp) {
-          this.entity = resp;
+        return cubaApp.invokeService(this.serviceName, this.method, this.params).then(function(resp) {
+          this.result = resp;
           this.fire('cuba-form-response');
         }.bind(this), function(errResp) {
           this._handleError(errResp);

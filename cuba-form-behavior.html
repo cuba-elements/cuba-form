@@ -1,7 +1,7 @@
 <script>
 
   /**
-   * Exposes bean validation errors
+   * Exposes bean validation errors.
    *
    * @polymerBehavior CubaFormBehavior
    */
@@ -9,6 +9,9 @@
   CubaFormBehavior = {
 
     properties: {
+      /**
+       * Map of errors returned by REST API (bean validation) {fieldPath: concatenatedErrorMessage, ...}.
+       */
       serverErrors: {
         type: Object,
         notify: true,
@@ -17,6 +20,9 @@
           return {};
         }
       },
+      /**
+       * Raw list of errors returned by REST API (bean validation).
+       */
       rawServerErrors: {
         type: Array,
         notify: true,

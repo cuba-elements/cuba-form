@@ -1,1 +1,1 @@
-# \<cuba-form-entity\>
+#### cuba-form-* components
