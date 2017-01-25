@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../cuba-app/cuba-app-aware-behavior.html">
 <link rel="import" href="cuba-form-behavior.html">
 
 <!--
@@ -22,7 +23,7 @@
 
       is: 'cuba-service-form',
 
-      behaviors: [CubaFormBehavior],
+      behaviors: [CubaAppAwareBehavior, CubaFormBehavior],
 
       properties: {
         serviceName: String,
@@ -50,7 +51,7 @@
        */
       submit: function() {
         this._clearErrors();
-        return cubaApp.invokeService(this.serviceName, this.method, this.params).then(function(resp) {
+        return this.app.invokeService(this.serviceName, this.method, this.params).then(function(resp) {
           this.result = resp;
           this.fire('cuba-form-response');
         }.bind(this), function(errResp) {

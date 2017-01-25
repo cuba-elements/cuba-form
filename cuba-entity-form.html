@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-form/iron-form.html">
+<link rel="import" href="../cuba-app/cuba-app-aware-behavior.html">
 <link rel="import" href="cuba-form-behavior.html">
 
 <!--
@@ -23,7 +24,7 @@
 
       is: 'cuba-entity-form',
 
-      behaviors: [CubaFormBehavior],
+      behaviors: [CubaAppAwareBehavior, CubaFormBehavior],
 
       properties: {
         /**
@@ -51,7 +52,7 @@
           return;
         }
         this._clearErrors();
-        return cubaApp.commitEntity(this.entityName, this.entity).then(function(resp) {
+        return this.app.commitEntity(this.entityName, this.entity).then(function(resp) {
           this.entity = resp;
           this.fire('cuba-form-response');
         }.bind(this), function(errResp) {
