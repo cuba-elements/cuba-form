@@ -1,6 +1,6 @@
 {
   "name": "cuba-form",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "cuba-form.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.7.0",
