@@ -14,9 +14,11 @@
         display: block;
       }
     </style>
-    <form is="iron-form" id="entityForm">
-      <slot></slot>
-    </form>
+    <iron-form id="entityForm">
+      <form>
+        <slot></slot>
+      </form>
+    </iron-form>
   </template>
 
   <script>
