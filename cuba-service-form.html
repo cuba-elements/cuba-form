@@ -52,7 +52,7 @@
       submit: function() {
         this._clearErrors();
         return this.app.invokeService(this.serviceName, this.method, this.params).then(function(resp) {
-          this.result = resp;
+          this._setResult(resp);
           this.fire('cuba-form-response');
         }.bind(this), function(errResp) {
           this._handleError(errResp);
