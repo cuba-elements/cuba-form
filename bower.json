@@ -3,7 +3,7 @@
   "main": "cuba-form.html",
   "dependencies": {
     "polymer": "Polymer/polymer#1 - 2",
-    "cuba-app": "cuba-elements/cuba-app#polymer2",
+    "cuba-app": "cuba-elements/cuba-app#^0.3.0",
     "iron-form": "PolymerElements/iron-form#1 - 2"
   },
   "devDependencies": {
@@ -16,7 +16,7 @@
     "1.x": {
       "dependencies": {
         "polymer": "Polymer/polymer#^1.7.0",
-        "cuba-app": "cuba-elements/cuba-app#^0.2.0",
+        "cuba-app": "cuba-elements/cuba-app#^0.3.0",
         "iron-form": "PolymerElements/iron-form#^1.1.4"
       },
       "devDependencies": {
